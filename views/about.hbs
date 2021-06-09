@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+        .card {
+            position: relative;
+            width: 250px;
+            height: 180px;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgb(66, 66, 66);
+            margin: 10px;
+        }
+
+        .card > div {
+            margin-bottom: 15px;
+        }
+
+        .card > img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            float: right;
+        }
+
+        #buttons {
+            position: absolute;
+            right: 10px;
+            bottom: 0;
+        }
+
+        #buttons > button {
+            padding: 5px;
+            margin-left: 5px;
+        }
+
+        #buttons > button > img {
+            width: 25px;
+            height: 25px;
+        }
+    </style>
+
+<body>
+    {{>header}}
+
+    <h1>Test hbs</h1>
+    {{!-- to import data from hbs you need to put just twice curly brackets {{}} --}}
+    {{#each testData}}
+
+    
+
+    <div class="card">
+        <img src='http://localhost:8080/avatars/{{this.avatar}}'/>
+        <div data-id='fullName'>{{this.fullName}}</div>
+        <div data-id='email' >{{this.email}}</div>
+        <div data-id='phone' >{{this.phone}}</div>
+        <div data-id='address' >{{this.address}}</div>
+        <div id="buttons">
+            <button><img src='http://localhost:8080/images/pencil.png'/></button>
+            <button><img src='http://localhost:8080/images/wastebasket.png'/></button>
+        </div>
+    </div>
+
+    {{/each}}
+</body>
+</html>
